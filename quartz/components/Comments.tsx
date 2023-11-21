@@ -1,7 +1,7 @@
 import { QuartzComponentConstructor } from "./types"
 
 export default (() => {
-  function Footer() {
+  function Comments() {
     return (
       <script
         src="https://giscus.app/client.js"
@@ -22,5 +22,5 @@ export default (() => {
     )
   }
 
-  return Footer
+  return Comments
 }) satisfies QuartzComponentConstructor
