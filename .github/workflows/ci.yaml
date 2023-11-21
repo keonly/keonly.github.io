@@ -21,7 +21,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 0
+          token: ${{ secrets.ACCESS_TOKEN }}
+          submodules: recursive
+          fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
+      - name: Pull submodule
+        run: |
+          git pull --recurse-submodules
+          git submodule update --init --recursive --remote
 
       - name: Setup Node
         uses: actions/setup-node@v3
