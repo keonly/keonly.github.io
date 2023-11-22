@@ -2,8 +2,7 @@ import { QuartzComponentConstructor, QuartzComponentProps } from "./types"
 
 export default (() => {
   function Comments({ cfg, fileData }: QuartzComponentProps) {
-    const comments = fileData.frontmatter?.comments
-    if (comments === false) return null
+    if (fileData.frontmatter.comments === false) return null
     else
       return (
         <script
@@ -17,7 +16,7 @@ export default (() => {
           data-reactions-enabled="1"
           data-emit-metadata="0"
           data-input-position="bottom"
-          data-theme="https://raw.githubusercontent.com/keonly/keonly.github.io/main/quartz/components/styles/comments.scss"
+          data-theme="https://keonly.github.io/quartz/components/styles/comments.scss"
           data-lang="en"
           crossorigin="anonymous"
           async
