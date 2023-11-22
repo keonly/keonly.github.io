@@ -17,7 +17,7 @@ export default (() => {
           data-reactions-enabled="1"
           data-emit-metadata="0"
           data-input-position="bottom"
-          data-theme="https://raw.githubusercontent.com/keonly/keonly.github.io/main/quartz/styles/comments.scss"
+          data-theme="https://raw.githubusercontent.com/keonly/keonly.github.io/main/quartz/components/styles/comments.scss"
           data-lang="en"
           crossorigin="anonymous"
           async
