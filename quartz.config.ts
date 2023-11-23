@@ -20,13 +20,13 @@ const config: QuartzConfig = {
       },
       colors: {
         lightMode: {
-          light: "#faf8f8",
-          lightgray: "#e5e5e5",
-          gray: "#b8b8b8",
-          darkgray: "#4e4e4e",
-          dark: "#2b2b2b",
-          secondary: "#284b63",
-          tertiary: "#84a59d",
+          light: "#eff1f5",
+          lightgray: "#ccd0da",
+          gray: "#bcc0cc",
+          darkgray: "#525252",
+          dark: "#161616",
+          secondary: "#5f8aec",
+          tertiary: "#8caaee",
           highlight: "rgba(143, 159, 169, 0.15)",
         },
         darkMode: {
@@ -35,8 +35,8 @@ const config: QuartzConfig = {
           gray: "#646464",
           darkgray: "#d4d4d4",
           dark: "#ebebec",
-          secondary: "#7b97aa",
-          tertiary: "#84a59d",
+          secondary: "#89b4fa",
+          tertiary: "#b4befe",
           highlight: "rgba(143, 159, 169, 0.15)",
         },
       },
@@ -45,7 +45,7 @@ const config: QuartzConfig = {
   plugins: {
     transformers: [
       Plugin.FrontMatter(),
-      Plugin.TableOfContents(),
+      Plugin.TableOfContents({ collapseByDefault: true }),
       Plugin.CreatedModifiedDate({
         priority: ["frontmatter", "filesystem"], // you can add 'git' here for last modified from Git but this makes the build slower
       }),
