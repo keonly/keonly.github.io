@@ -1,32 +1,47 @@
 const userPref = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark"
 const currentTheme = localStorage.getItem("theme") ?? userPref
-document.documentElement.setAttribute("saved-theme", currentTheme)
+document.documentElement.setAttribute("data-theme", currentTheme)
+
+function changeGiscusTheme() {
+  const theme = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light"
+
+  function sendMessage(message) {
+    const iframe = document.querySelector("iframe.giscus-frame")
+    if (!iframe) return
+    iframe.contentWindow.postMessage({ giscus: message }, "https://giscus.app")
+  }
+
+  sendMessage({
+    setConfig: {
+      theme: theme,
+    },
+  })
+}
 
 document.addEventListener("nav", () => {
-  const switchTheme = (e: any) => {
-    if (e.target.checked) {
-      document.documentElement.setAttribute("saved-theme", "dark")
-      localStorage.setItem("theme", "dark")
-    } else {
-      document.documentElement.setAttribute("saved-theme", "light")
-      localStorage.setItem("theme", "light")
-    }
+  const switchTheme = (e) => {
+    const newTheme = e.target.checked ? "dark" : "light"
+    document.documentElement.setAttribute("saved-theme", newTheme)
+    document.documentElement.setAttribute("data-theme", newTheme)
+    localStorage.setItem("theme", newTheme)
+    changeGiscusTheme()
   }
 
-  // Darkmode toggle
+  changeGiscusTheme()
+
   const toggleSwitch = document.querySelector("#darkmode-toggle") as HTMLInputElement
-  toggleSwitch.removeEventListener("change", switchTheme)
-  toggleSwitch.addEventListener("change", switchTheme)
-  if (currentTheme === "dark") {
-    toggleSwitch.checked = true
+  if (toggleSwitch) {
+    toggleSwitch.addEventListener("change", switchTheme)
+    toggleSwitch.checked = currentTheme === "dark"
   }
 
-  // Listen for changes in prefers-color-scheme
   const colorSchemeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)")
   colorSchemeMediaQuery.addEventListener("change", (e) => {
     const newTheme = e.matches ? "dark" : "light"
     document.documentElement.setAttribute("saved-theme", newTheme)
+    document.documentElement.setAttribute("data-theme", newTheme)
     localStorage.setItem("theme", newTheme)
     toggleSwitch.checked = e.matches
+    changeGiscusTheme()
   })
 })
