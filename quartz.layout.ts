@@ -30,6 +30,19 @@ export const defaultContentPageLayout: PageLayout = {
     Component.DesktopOnly(Component.Explorer()),
   ],
   right: [
+    Component.RecentNotes({
+      title: "Recent Writing",
+      limit: 3,
+      filter: (f) =>
+        f.slug!.startsWith("logs/") && f.slug! !== "logs/index" && !f.frontmatter?.noindex,
+      linkToMore: "logs/" as SimpleSlug,
+    }),
+    Component.RecentNotes({
+      title: "Recent Notes",
+      limit: 3,
+      filter: (f) => f.slug!.startsWith("cards/"),
+      linkToMore: "cards/" as SimpleSlug,
+    }),
     Component.Graph(),
     Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),

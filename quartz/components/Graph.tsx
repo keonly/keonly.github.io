@@ -52,7 +52,11 @@ const defaultOptions: GraphOptions = {
 }
 
 export default ((opts?: GraphOptions) => {
-  function Graph({ displayClass }: QuartzComponentProps) {
+  function Graph({ fileData, displayClass }: QuartzComponentProps) {
+    if (fileData.slug === "index") {
+      return <></>
+    }
+
     const localGraph = { ...defaultOptions.localGraph, ...opts?.localGraph }
     const globalGraph = { ...defaultOptions.globalGraph, ...opts?.globalGraph }
     return (
