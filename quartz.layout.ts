@@ -31,7 +31,7 @@ export const defaultContentPageLayout: PageLayout = {
   ],
   right: [
     Component.RecentNotes({
-      title: "Recent Writing",
+      title: "Recent Writings",
       limit: 3,
       filter: (f) =>
         f.slug!.startsWith("logs/") && f.slug! !== "logs/index" && !f.frontmatter?.noindex,
