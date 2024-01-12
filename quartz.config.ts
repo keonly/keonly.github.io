@@ -47,7 +47,7 @@ const config: QuartzConfig = {
       Plugin.FrontMatter(),
       Plugin.TableOfContents({ collapseByDefault: true }),
       Plugin.CreatedModifiedDate({
-        priority: ["frontmatter"], // you can add 'git' here for last modified from Git but this makes the build slower
+        priority: ["frontmatter", "git"], // you can add 'git' here for last modified from Git but this makes the build slower
       }),
       Plugin.Latex({ renderEngine: "katex" }),
       Plugin.SyntaxHighlighting(),
