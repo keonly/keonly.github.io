@@ -6,7 +6,7 @@ export default (() => {
     if (fileData.frontmatter.comments === false) return null
     else
       return (
-        <div></div>
+        <div id="giscus-frame"></div>
       )
   }
 
