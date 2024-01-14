@@ -4,7 +4,12 @@ function getGiscusTheme() {
   return currentTheme
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("nav", () => {
+  const targetDiv = document.getElementById("giscus-frame")
+  if (!targetDiv) {
+    return
+  }
+
   const giscusAttributes = {
     src: "https://giscus.app/client.js",
     "data-repo": "keonly/keonly.github.io",
