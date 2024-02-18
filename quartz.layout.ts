@@ -28,7 +28,6 @@ export const defaultContentPageLayout: PageLayout = {
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
     Component.Darkmode(),
-    Component.DesktopOnly(Component.Explorer()),
   ],
   right: [
     Component.RecentNotes({
@@ -41,7 +40,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.RecentNotes({
       title: "Recent Notes",
       limit: 3,
-      filter: (f) => f.slug!.startsWith("tags/seed/"),
+      filter: (f) => f.slug!.startsWith("cards/") || f.slug!.startsWith("sources/"),
       linkToMore: "tags/seed/" as SimpleSlug,
     }),
     Component.Graph(),

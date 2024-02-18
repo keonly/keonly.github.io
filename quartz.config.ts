@@ -9,7 +9,7 @@ const config: QuartzConfig = {
     analytics: {
       provider: "plausible",
     },
-    locale: "en-AU",
+    locale: "en-US",
     baseUrl: "keonly.github.io",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "created",
@@ -47,7 +47,7 @@ const config: QuartzConfig = {
   plugins: {
     transformers: [
       Plugin.FrontMatter(),
-      Plugin.TableOfContents({ collapseByDefault: true }),
+      Plugin.TableOfContents({ collapseByDefault: false }),
       Plugin.CreatedModifiedDate({
         priority: ["frontmatter"], // you can add 'git' here for last modified from Git but this makes the build slower
       }),
