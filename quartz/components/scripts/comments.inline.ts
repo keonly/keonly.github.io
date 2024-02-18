@@ -4,7 +4,7 @@ function getGiscusTheme() {
   return currentTheme
 }
 
-document.addEventListener("nav", () => {
+document.addEventListener("themechange", () => {
   const targetDiv = document.getElementById("giscus-frame")
   if (!targetDiv) {
     return

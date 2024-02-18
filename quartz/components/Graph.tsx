@@ -1,7 +1,9 @@
-import { QuartzComponentConstructor, QuartzComponentProps } from "./types"
+import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 // @ts-ignore
 import script from "./scripts/graph.inline"
 import style from "./styles/graph.scss"
+import { i18n } from "../i18n"
+import { classNames } from "../util/lang"
 
 export interface D3Config {
   drag: boolean
@@ -52,7 +54,7 @@ const defaultOptions: GraphOptions = {
 }
 
 export default ((opts?: GraphOptions) => {
-  function Graph({ fileData, displayClass }: QuartzComponentProps) {
+  const Graph: QuartzComponent = ({ displayClass, cfg }: QuartzComponentProps) => {
     if (fileData.slug === "index") {
       return <></>
     }
@@ -60,8 +62,8 @@ export default ((opts?: GraphOptions) => {
     const localGraph = { ...defaultOptions.localGraph, ...opts?.localGraph }
     const globalGraph = { ...defaultOptions.globalGraph, ...opts?.globalGraph }
     return (
-      <div class={`graph ${displayClass ?? ""}`}>
-        <h3>Graph View</h3>
+      <div class={classNames(displayClass, "graph")}>
+        <h3>{i18n(cfg.locale).components.graph.title}</h3>
         <div class="graph-outer">
           <div id="graph-container" data-cfg={JSON.stringify(localGraph)}></div>
           <svg
