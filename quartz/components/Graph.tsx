@@ -54,7 +54,7 @@ const defaultOptions: GraphOptions = {
 }
 
 export default ((opts?: GraphOptions) => {
-  const Graph: QuartzComponent = ({ displayClass, cfg }: QuartzComponentProps) => {
+  const Graph: QuartzComponent = ({ fileData, displayClass, cfg }: QuartzComponentProps) => {
     if (fileData.slug === "index") {
       return <></>
     }

@@ -13,3 +13,4 @@ export default (() => {
   Comments.afterDOMLoaded = commentsScript
   return Comments
 }) satisfies QuartzComponentConstructor
+
