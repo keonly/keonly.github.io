@@ -41,7 +41,7 @@ export const defaultContentPageLayout: PageLayout = {
       title: "Recent Notes",
       limit: 3,
       filter: (f) => f.slug!.startsWith("cards/") || f.slug!.startsWith("sources/"),
-      linkToMore: "tags/seed/" as SimpleSlug,
+      linkToMore: "tags/seed" as SimpleSlug,
     }),
     Component.Graph(),
     Component.DesktopOnly(Component.TableOfContents()),
