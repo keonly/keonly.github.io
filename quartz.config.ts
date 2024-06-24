@@ -16,7 +16,7 @@ const config: QuartzConfig = {
     },
     locale: "en-US",
     baseUrl: "keonly.github.io",
-    ignorePatterns: ["private", "templates", ".obsidian"],
+    ignorePatterns: ["private", "templates", "fleeting", ".obsidian"],
     defaultDateType: "created",
     theme: {
       fontOrigin: "googleFonts",
