@@ -22,7 +22,7 @@ function boolToStringBool(b: boolean): string {
 }
 
 export default ((opts: Options) => {
-  const Comments: QuartzComponent = ({ displayClass, fileData, cfg }: QuartzComponentProps) => {
+  const Comments: QuartzComponent = ({ fileData, displayClass, cfg }: QuartzComponentProps) => {
     if (fileData.frontmatter.comments === false) return null
     else
       return (
