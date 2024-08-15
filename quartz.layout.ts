@@ -32,7 +32,6 @@ export const defaultContentPageLayout: PageLayout = {
     Component.ContentMeta(),
     Component.TagList(),
     Component.TableOfContents(),
-    Component.Comments(),
   ],
   left: [
     Component.PageTitle(),
