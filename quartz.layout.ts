@@ -5,6 +5,29 @@ import * as Component from "./quartz/components"
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
+  footer: Component.Footer({
+    links: {
+      github: "https://github.com/keonly",
+      linkedin: "https://www.linkedin.com/in/keonly",
+    },
+  }),
+}
+
+// components for pages that display a single page (e.g. a single note)
+export const defaultContentPageLayout: PageLayout = {
+  beforeBody: [
+    Component.Breadcrumbs(),
+    Component.ArticleTitle(),
+    Component.ContentMeta(),
+    Component.TagList(),
+    Component.ExceptDesktop(Component.TableOfContentsCollapsed()),
+  ],
+  left: [Component.Spacer(), Component.Darkmode(), Component.Search()],
+  right: [
+    Component.DesktopOnly(Component.TableOfContents()),
+    Component.ExceptDesktop(Component.Graph()),
+    Component.ExceptDesktop(Component.Backlinks()),
+  ],
   afterBody: [
     Component.RecentNotes({
       title: "Recent Writings",
@@ -26,33 +49,11 @@ export const sharedPageComponents: SharedLayout = {
         repoId: "R_kgDOKwHh3A",
         category: "Comments",
         categoryId: "DIC_kwDOKwHh3M4CbHnd",
+        reactionsEnabled: false,
       },
     }),
-    Component.Graph(),
-    Component.Backlinks(),
-  ],
-  footer: Component.Footer({
-    links: {
-      github: "https://github.com/keonly",
-      linkedin: "https://www.linkedin.com/in/keonly",
-    },
-  }),
-}
-
-// components for pages that display a single page (e.g. a single note)
-export const defaultContentPageLayout: PageLayout = {
-  beforeBody: [
-    Component.Breadcrumbs(),
-    Component.ArticleTitle(),
-    Component.ContentMeta(),
-    Component.TagList(),
-    Component.MobileOnly(Component.TableOfContents()),
-  ],
-  left: [Component.Spacer(), Component.Darkmode(), Component.Search()],
-  right: [
-    Component.DesktopOnly(Component.TableOfContents()),
-    Component.MobileOnly(Component.Graph()),
-    Component.MobileOnly(Component.Backlinks()),
+    Component.DesktopOnly(Component.Graph()),
+    Component.DesktopOnly(Component.Backlinks()),
   ],
 }
 
