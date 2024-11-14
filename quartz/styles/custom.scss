@@ -99,6 +99,17 @@ hr {
   }
 }
 
+// Add top margin to right sidebar
+.page {
+  & > #quartz-body {
+    & .sidebar.right {
+      @media all and ($desktop) {
+        padding-top: 7rem;
+      }
+    }
+  }
+}
+
 // Never add margin to page header
 .page {
   & > #quartz-body {
