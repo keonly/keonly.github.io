@@ -1,3 +1,104 @@
 @use "./base.scss";
 
 // put your custom CSS here!
+@use "./variables.scss" as *;
+
+// Better looking dividers
+hr {
+  overflow: visible;
+  padding: 0;
+  height: 0;
+  margin: 2em auto;
+  border: none;
+  text-align: center;
+  width: 100%;
+
+  &:after {
+    content: "* * *";
+    display: inline-block;
+    margin: -1em 0 0.5em;
+    font-size: 1.5em;
+    padding: 0.5em 1em;
+    color: var(--gray);
+    white-space: pre;
+  }
+}
+
+// Fix DesktopOnly and MobileOnly components
+.desktop-only {
+  display: none !important;
+  @media all and ($desktop) {  
+    display: initial !important;
+  }
+}
+.mobile-only {
+  display: none !important;
+  @media all and ($mobile) {
+    display: initial !important;
+  }
+}
+
+
+// Simplify the search bar
+.search {
+  min-width: fit-content;
+  max-width: 14rem;
+  @media all and ($mobile) {
+    flex-grow: 0 !important;
+  }
+
+  & > .search-button {
+    background-color: transparent;
+  }
+}
+
+// Add spacing between page content and afterBody
+.page {
+  & > #quartz-body {
+    & .page-footer {
+      margin-top: 5rem;
+    }
+
+    & .center > article {
+      margin-bottom: 5rem;
+    }
+  }
+}
+
+// Add empty grid area
+.page {
+  & > #quartz-body {
+    & .empty {
+      grid-area: grid-empty;
+    }
+  }
+}
+
+// Never change flex direction of left sidebar
+.page {
+  & > #quartz-body {
+    & .sidebar.left {
+      z-index: 1;
+      grid-area: grid-sidebar-left;
+      gap: 0;
+      align-items: center;
+      position: initial;
+      display: flex;
+      height: unset;
+      flex-direction: row;
+      padding: 0;
+      padding-top: 2rem;
+    }
+  }
+}
+
+// Never add margin to page header
+.page {
+  & > #quartz-body {
+    & .page-header {
+      grid-area: grid-header;
+      margin: 0 0 0 0;
+      padding: 0;
+    }
+  }
+}
