@@ -25,10 +25,15 @@ jobs:
           submodules: recursive
           fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
 
-      - name: Pull submodule
+      - name: Update submodule
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         run: |
-          git pull --recurse-submodules
           git submodule update --init --recursive --remote
+          git add content
+          TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          git commit -m "chore(submodule): update to latest version - $TIMESTAMP" || echo "No changes to commit"
+          git push origin main
 
       - name: Setup Node
         uses: actions/setup-node@v4
