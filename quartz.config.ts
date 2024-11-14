@@ -57,7 +57,8 @@ const config: QuartzConfig = {
   plugins: {
     transformers: [
       Plugin.FrontMatter(),
-      Plugin.TableOfContents({ collapseByDefault: false }),
+      Plugin.TableOfContents(),
+      Plugin.TableOfContentsCollapsed(),
       Plugin.CreatedModifiedDate({
         priority: ["frontmatter"], // you can add 'git' here for last modified from Git but this makes the build slower
       }),
