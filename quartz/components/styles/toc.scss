@@ -15,7 +15,7 @@
   }
 }
 
-button[id^="toc-"] {
+button#toc {
   background-color: transparent;
   border: none;
   text-align: left;
@@ -42,7 +42,7 @@ button[id^="toc-"] {
   }
 }
 
-[id^="toc-content"] {
+#toc-content {
   list-style: none;
   overflow: hidden;
   overflow-y: auto;

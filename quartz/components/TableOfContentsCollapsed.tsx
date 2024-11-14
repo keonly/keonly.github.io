@@ -14,8 +14,6 @@ const defaultOptions: Options = {
   layout: "modern",
 }
 
-let tocCount = 0;
-
 const TableOfContentsCollapsed: QuartzComponent = ({
   fileData,
   displayClass,
@@ -25,17 +23,13 @@ const TableOfContentsCollapsed: QuartzComponent = ({
     return null
   }
 
-  tocCount += 1;
-  const uniqueTocId = `collapsed-toc-${tocCount}`
-  const uniqueContentId = `collapsed-toc-content-${tocCount}`
-
   return (
     <div class={classNames(displayClass, "toc")}>
       <button
         type="button"
-        id={uniqueTocId}
+        id="collapsed-toc"
         class={fileData.isCollapsedToc ? "collapsed" : ""}
-        aria-controls={uniqueContentId}
+        aria-controls="collapsed-toc-content"
         aria-expanded={!fileData.isCollapsedToc}
       >
         <h3>{i18n(cfg.locale).components.tableOfContents.title}</h3>
@@ -54,7 +48,7 @@ const TableOfContentsCollapsed: QuartzComponent = ({
           <polyline points="6 9 12 15 18 9"></polyline>
         </svg>
       </button>
-      <div id={uniqueContentId} class={fileData.isCollapsedToc ? "collapsed" : ""}>
+      <div id="collapsed-toc-content" class={fileData.isCollapsedToc ? "collapsed" : ""}>
         <ul class="overflow">
           {fileData.toc.map((tocEntry) => (
             <li key={tocEntry.slug} class={`depth-${tocEntry.depth}`}>

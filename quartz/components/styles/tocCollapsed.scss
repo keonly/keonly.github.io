@@ -15,7 +15,7 @@
   }
 }
 
-button[id^="collapsed-toc-"] {
+button#collapsed-toc {
   background-color: transparent;
   border: none;
   text-align: left;
@@ -42,7 +42,7 @@ button[id^="collapsed-toc-"] {
   }
 }
 
-[id^="collapsed-toc-content"] {
+#collapsed-toc-content {
   list-style: none;
   overflow: hidden;
   overflow-y: auto;

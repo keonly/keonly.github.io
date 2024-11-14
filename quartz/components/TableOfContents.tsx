@@ -15,8 +15,6 @@ const defaultOptions: Options = {
   layout: "modern",
 }
 
-let tocCount = 0;
-
 const TableOfContents: QuartzComponent = ({
   fileData,
   displayClass,
@@ -26,17 +24,13 @@ const TableOfContents: QuartzComponent = ({
     return null
   }
 
-  tocCount += 1;
-  const uniqueTocId = `toc-${tocCount}`
-  const uniqueContentId = `toc-content-${tocCount}`
-
   return (
     <div class={classNames(displayClass, "toc")}>
       <button
         type="button"
-        id={uniqueTocId}
+        id="toc"
         class={fileData.collapseToc ? "collapsed" : ""}
-        aria-controls={uniqueContentId}
+        aria-controls="toc-content"
         aria-expanded={!fileData.collapseToc}
       >
         <h3>{i18n(cfg.locale).components.tableOfContents.title}</h3>
@@ -55,7 +49,7 @@ const TableOfContents: QuartzComponent = ({
           <polyline points="6 9 12 15 18 9"></polyline>
         </svg>
       </button>
-      <div id={uniqueContentId} class={fileData.collapseToc ? "collapsed" : ""}>
+      <div id="toc-content" class={fileData.collapseToc ? "collapsed" : ""}>
         <ul class="overflow">
           {fileData.toc.map((tocEntry) => (
             <li key={tocEntry.slug} class={`depth-${tocEntry.depth}`}>
@@ -76,13 +70,8 @@ const LegacyTableOfContents: QuartzComponent = ({ fileData, cfg }: QuartzCompone
   if (!fileData.toc) {
     return null
   }
-
-  tocCount += 1;
-  const uniqueTocId = `toc-${tocCount}`
-  const uniqueContentId = `toc-content-${tocCount}`
-
   return (
-    <details id={uniqueContentId} open={!fileData.collapseToc}>
+    <details id="toc" open={!fileData.collapseToc}>
       <summary>
         <h3>{i18n(cfg.locale).components.tableOfContents.title}</h3>
       </summary>
