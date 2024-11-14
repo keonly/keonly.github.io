@@ -1,0 +1,99 @@
+/* SarasaMonoK Regular */
+@font-face {
+  font-family: "SarasaMonoK";
+  src:
+    url("SarasaMonoK-Regular.woff2") format("woff2"),
+    url("SarasaMonoK-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* SarasaMonoK Italic */
+@font-face {
+  font-family: "SarasaMonoK";
+  src:
+    url("SarasaMonoK-Italic.woff2") format("woff2"),
+    url("SarasaMonoK-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* SarasaMonoK Light */
+@font-face {
+  font-family: "SarasaMonoK";
+  src:
+    url("SarasaMonoK-Light.woff2") format("woff2"),
+    url("SarasaMonoK-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* SarasaMonoK Light Italic */
+@font-face {
+  font-family: "SarasaMonoK";
+  src:
+    url("SarasaMonoK-LightItalic.woff2") format("woff2"),
+    url("SarasaMonoK-LightItalic.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+}
+
+/* SarasaMonoK ExtraLight */
+@font-face {
+  font-family: "SarasaMonoK";
+  src:
+    url("SarasaMonoK-ExtraLight.woff2") format("woff2"),
+    url("SarasaMonoK-ExtraLight.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+}
+
+/* SarasaMonoK ExtraLight Italic */
+@font-face {
+  font-family: "SarasaMonoK";
+  src:
+    url("SarasaMonoK-ExtraLightItalic.woff2") format("woff2"),
+    url("SarasaMonoK-ExtraLightItalic.woff") format("woff");
+  font-weight: 200;
+  font-style: italic;
+}
+
+/* SarasaMonoK SemiBold */
+@font-face {
+  font-family: "SarasaMonoK";
+  src:
+    url("SarasaMonoK-SemiBold.woff2") format("woff2"),
+    url("SarasaMonoK-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* SarasaMonoK SemiBold Italic */
+@font-face {
+  font-family: "SarasaMonoK";
+  src:
+    url("SarasaMonoK-SemiBoldItalic.woff2") format("woff2"),
+    url("SarasaMonoK-SemiBoldItalic.woff") format("woff");
+  font-weight: 600;
+  font-style: italic;
+}
+
+/* SarasaMonoK Bold */
+@font-face {
+  font-family: "SarasaMonoK";
+  src:
+    url("SarasaMonoK-Bold.woff2") format("woff2"),
+    url("SarasaMonoK-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* SarasaMonoK Bold Italic */
+@font-face {
+  font-family: "SarasaMonoK";
+  src:
+    url("SarasaMonoK-BoldItalic.woff2") format("woff2"),
+    url("SarasaMonoK-BoldItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+}
