@@ -6,6 +6,19 @@ export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
   afterBody: [
+    Component.RecentNotes({
+      title: "Recent Writings",
+      limit: 3,
+      filter: (f) =>
+        f.slug!.startsWith("logs/") && f.slug! !== "logs/index" && !f.frontmatter?.noindex,
+      linkToMore: "logs/" as SimpleSlug,
+    }),
+    Component.RecentNotes({
+      title: "Recent Notes",
+      limit: 3,
+      filter: (f) => f.slug!.startsWith("cards/"),
+      linkToMore: "cards" as SimpleSlug,
+    }),
     Component.Comments({
       provider: "giscus",
       options: {
@@ -15,6 +28,8 @@ export const sharedPageComponents: SharedLayout = {
         categoryId: "DIC_kwDOKwHh3M4CbHnd",
       },
     }),
+    Component.Graph(),
+    Component.Backlinks(),
   ],
   footer: Component.Footer({
     links: {
@@ -31,31 +46,13 @@ export const defaultContentPageLayout: PageLayout = {
     Component.ArticleTitle(),
     Component.ContentMeta(),
     Component.TagList(),
-    Component.TableOfContents(),
+    Component.MobileOnly(Component.TableOfContents()),
   ],
-  left: [
-    Component.PageTitle(),
-    Component.MobileOnly(Component.Spacer()),
-    Component.Search(),
-    Component.Darkmode(),
-  ],
+  left: [Component.Spacer(), Component.Darkmode(), Component.Search()],
   right: [
-    Component.RecentNotes({
-      title: "Recent Writings",
-      limit: 3,
-      filter: (f) =>
-        f.slug!.startsWith("logs/") && f.slug! !== "logs/index" && !f.frontmatter?.noindex,
-      linkToMore: "logs/" as SimpleSlug,
-    }),
-    Component.RecentNotes({
-      title: "Recent Notes",
-      limit: 3,
-      filter: (f) => f.slug!.startsWith("cards/") || f.slug!.startsWith("sources/"),
-      linkToMore: "tags/seed" as SimpleSlug,
-    }),
-    Component.Graph(),
     Component.DesktopOnly(Component.TableOfContents()),
-    Component.Backlinks(),
+    Component.MobileOnly(Component.Graph()),
+    Component.MobileOnly(Component.Backlinks()),
   ],
 }
 
@@ -63,11 +60,10 @@ export const defaultContentPageLayout: PageLayout = {
 export const defaultListPageLayout: PageLayout = {
   beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta()],
   left: [
-    Component.PageTitle(),
+    Component.MobileOnly(Component.PageTitle()),
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
     Component.Darkmode(),
-    Component.DesktopOnly(Component.Explorer()),
   ],
   right: [],
 }
