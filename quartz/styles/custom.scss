@@ -176,25 +176,25 @@ hr {
 /* codeFont */
 h6 {
   &[id] > a[href^="#"] {
-    font-family: 'SarasaMonoK'
+    font-family: 'SarasaMonoK', var(--codeFont), monospace;
   }
 }
 figure[data-rehype-pretty-code-figure] {
   & > [data-rehype-pretty-code-title] {
-    font-family: 'SarasaMonoK'
+    font-family: 'SarasaMonoK', var(--codeFont), monospace;
   }
 }
 pre {
-  font-family: 'SarasaMonoK'
+  font-family: 'SarasaMonoK', var(--codeFont), monospace;
 }
 code {
-  font-family: 'SarasaMonoK'
+  font-family: 'SarasaMonoK', var(--codeFont), monospace;
 }
 
 /* bodyFont */
 body,
 section {
-  font-family: 'SarasaMonoK'
+  font-family: 'SarasaMonoK', var(--bodyFont);
 }
 
 /* headerFont */
@@ -205,5 +205,5 @@ h4,
 h5,
 h6,
 thead {
-  font-family: 'SarasaMonoK'
+  font-family: 'SarasaMonoK', var(--headerFont);
 }
