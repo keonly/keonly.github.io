@@ -31,26 +31,30 @@ $mobileGrid: (
       "grid-header"\
       "grid-center"\
       "grid-sidebar-right"\
-      "grid-footer"',
+      "grid-footer"\
+      "grid-empty"',
 );
 $tabletGrid: (
-  templateRows: "auto auto auto auto",
-  templateColumns: "#{$sidePanelWidth} auto",
+  templateRows: "auto auto auto auto auto",
+  templateColumns: "auto",
   rowGap: "5px",
   columnGap: "5px",
   templateAreas:
-    '"grid-sidebar-left grid-header"\
-      "grid-sidebar-left grid-center"\
-      "grid-sidebar-left grid-sidebar-right"\
-      "grid-sidebar-left grid-footer"',
+    '"grid-sidebar-left"\
+      "grid-header"\
+      "grid-center"\
+      "grid-sidebar-right"\
+      "grid-footer"\
+      "grid-empty"',
 );
 $desktopGrid: (
-  templateRows: "auto auto auto",
+  templateRows: "auto auto auto auto",
   templateColumns: "#{$sidePanelWidth} auto #{$sidePanelWidth}",
   rowGap: "5px",
   columnGap: "5px",
   templateAreas:
-    '"grid-sidebar-left grid-header grid-sidebar-right"\
-      "grid-sidebar-left grid-center grid-sidebar-right"\
-      "grid-sidebar-left grid-footer grid-sidebar-right"',
+    '"grid-sidebar-right grid-sidebar-left grid-empty"\
+      "grid-sidebar-right grid-header grid-empty"\
+      "grid-sidebar-right grid-center grid-empty"\
+      "grid-sidebar-right grid-footer grid-empty"',
 );
