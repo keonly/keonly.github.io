@@ -132,3 +132,10 @@ hr {
   }
 }
 
+// Never increase height of backlinks component
+.backlinks {
+  & > .overflow {
+    height: auto !important;
+  }
+}
+
