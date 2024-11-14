@@ -3,7 +3,9 @@
 // put your custom CSS here!
 @use "./variables.scss" as *;
 
-// Better looking dividers
+/***************************
+ * Better looking dividers *
+ ***************************/
 hr {
   overflow: visible;
   padding: 0;
@@ -24,7 +26,9 @@ hr {
   }
 }
 
-// Fix DesktopOnly and MobileOnly components
+/*********************************************
+ * Fix DesktopOnly and MobileOnly components *
+ *********************************************/
 .desktop-only {
   display: none !important;
   @media all and ($desktop) {  
@@ -38,7 +42,9 @@ hr {
   }
 }
 
-// Add ExceptDesktop component
+/*******************************
+ * Add ExceptDesktop component *
+ *******************************/
 .except-desktop {
   display: initial !important;
   @media all and ($desktop) {
@@ -46,7 +52,9 @@ hr {
   }
 }
 
-// Simplify the search bar
+/***************************
+ * Simplify the search bar *
+ ***************************/
 .search {
   min-width: fit-content;
   max-width: 14rem;
@@ -59,7 +67,9 @@ hr {
   }
 }
 
-// Add spacing between page content and afterBody
+/**************************************************
+ * Add spacing between page content and afterBody *
+ **************************************************/
 .page {
   & > #quartz-body {
     & .page-footer {
@@ -72,7 +82,9 @@ hr {
   }
 }
 
-// Add empty grid area
+/***********************
+ * Add empty grid area *
+ ***********************/
 .page {
   & > #quartz-body {
     & .empty {
@@ -81,7 +93,9 @@ hr {
   }
 }
 
-// Never change flex direction of left sidebar
+/***********************************************
+ * Never change flex direction of left sidebar *
+ ***********************************************/
 .page {
   & > #quartz-body {
     & .sidebar.left {
@@ -99,7 +113,9 @@ hr {
   }
 }
 
-// Add top margin to right sidebar
+/***********************************
+ * Add top margin to right sidebar *
+ ***********************************/
 .page {
   & > #quartz-body {
     & .sidebar.right {
@@ -110,7 +126,9 @@ hr {
   }
 }
 
-// Never add margin to page header
+/***********************************
+ * Never add margin to page header *
+ ***********************************/
 .page {
   & > #quartz-body {
     & .page-header {
@@ -121,7 +139,9 @@ hr {
   }
 }
 
-// Add gaps between afterBody contents
+/***************************************
+ * Add gaps between afterBody contents *
+ ***************************************/
 .page {
   & > #quartz-body {
     & .page-footer {
@@ -132,14 +152,18 @@ hr {
   }
 }
 
-// Never increase height of backlinks component
+/************************************************
+ * Never increase height of backlinks component *
+ ************************************************/
 .backlinks {
   & > .overflow {
     height: auto !important;
   }
 }
 
-// Increase TOC max height
+/***************************
+ * Increase TOC max height *
+ ***************************/
 .toc {
   &.desktop-only {
     max-height: 70%;
