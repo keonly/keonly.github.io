@@ -120,3 +120,15 @@ hr {
     }
   }
 }
+
+// Add gaps between afterBody contents
+.page {
+  & > #quartz-body {
+    & .page-footer {
+      display: flex;
+      flex-direction: column;
+      gap: 2em;
+    }
+  }
+}
+
