@@ -15,7 +15,7 @@
   }
 }
 
-button[id^="toc-"] {
+button[id^="collapsed-toc-"] {
   background-color: transparent;
   border: none;
   text-align: left;
@@ -42,11 +42,11 @@ button[id^="toc-"] {
   }
 }
 
-[id^="toc-content"] {
+[id^="collapsed-toc-content"] {
   list-style: none;
   overflow: hidden;
   overflow-y: auto;
-  max-height: 100%;
+  height: auto;
   transition:
     max-height 0.35s ease,
     visibility 0s linear 0s;
@@ -54,9 +54,8 @@ button[id^="toc-"] {
   visibility: visible;
 
   &.collapsed {
-    max-height: 0;
+    height: 0;
     transition:
-      max-height 0.35s ease,
       visibility 0s linear 0.35s;
     visibility: hidden;
   }

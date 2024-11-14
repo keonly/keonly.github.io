@@ -26,7 +26,7 @@ function toggleToc(this: HTMLElement) {
 }
 
 function setupToc() {
-  const tocs = document.querySelectorAll('button[id^="toc-"]')
+  const tocs = document.querySelectorAll('button[id^="collapsed-toc-"]')
 
   tocs.forEach((toc) => {
     const collapsed = toc.classList.contains("collapsed")

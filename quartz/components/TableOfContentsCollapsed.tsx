@@ -1,10 +1,9 @@
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
-import legacyStyle from "./styles/legacyToc.scss"
-import modernStyle from "./styles/toc.scss"
+import modernStyle from "./styles/tocCollapsed.scss"
 import { classNames } from "../util/lang"
 
 // @ts-ignore
-import script from "./scripts/toc.inline"
+import script from "./scripts/tocCollapsed.inline"
 import { i18n } from "../i18n"
 
 interface Options {
@@ -17,7 +16,7 @@ const defaultOptions: Options = {
 
 let tocCount = 0;
 
-const TableOfContents: QuartzComponent = ({
+const TableOfContentsCollapsed: QuartzComponent = ({
   fileData,
   displayClass,
   cfg,
@@ -27,17 +26,17 @@ const TableOfContents: QuartzComponent = ({
   }
 
   tocCount += 1;
-  const uniqueTocId = `toc-${tocCount}`
-  const uniqueContentId = `toc-content-${tocCount}`
+  const uniqueTocId = `collapsed-toc-${tocCount}`
+  const uniqueContentId = `collapsed-toc-content-${tocCount}`
 
   return (
     <div class={classNames(displayClass, "toc")}>
       <button
         type="button"
         id={uniqueTocId}
-        class={fileData.collapseToc ? "collapsed" : ""}
+        class={fileData.isCollapsedToc ? "collapsed" : ""}
         aria-controls={uniqueContentId}
-        aria-expanded={!fileData.collapseToc}
+        aria-expanded={!fileData.isCollapsedToc}
       >
         <h3>{i18n(cfg.locale).components.tableOfContents.title}</h3>
         <svg
@@ -55,7 +54,7 @@ const TableOfContents: QuartzComponent = ({
           <polyline points="6 9 12 15 18 9"></polyline>
         </svg>
       </button>
-      <div id={uniqueContentId} class={fileData.collapseToc ? "collapsed" : ""}>
+      <div id={uniqueContentId} class={fileData.isCollapsedToc ? "collapsed" : ""}>
         <ul class="overflow">
           {fileData.toc.map((tocEntry) => (
             <li key={tocEntry.slug} class={`depth-${tocEntry.depth}`}>
@@ -69,38 +68,9 @@ const TableOfContents: QuartzComponent = ({
     </div>
   )
 }
-TableOfContents.css = modernStyle
-TableOfContents.afterDOMLoaded = script
-
-const LegacyTableOfContents: QuartzComponent = ({ fileData, cfg }: QuartzComponentProps) => {
-  if (!fileData.toc) {
-    return null
-  }
-
-  tocCount += 1;
-  const uniqueTocId = `toc-${tocCount}`
-  const uniqueContentId = `toc-content-${tocCount}`
-
-  return (
-    <details id={uniqueContentId} open={!fileData.collapseToc}>
-      <summary>
-        <h3>{i18n(cfg.locale).components.tableOfContents.title}</h3>
-      </summary>
-      <ul>
-        {fileData.toc.map((tocEntry) => (
-          <li key={tocEntry.slug} class={`depth-${tocEntry.depth}`}>
-            <a href={`#${tocEntry.slug}`} data-for={tocEntry.slug}>
-              {tocEntry.text}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </details>
-  )
-}
-LegacyTableOfContents.css = legacyStyle
+TableOfContentsCollapsed.css = modernStyle
+TableOfContentsCollapsed.afterDOMLoaded = script
 
 export default ((opts?: Partial<Options>) => {
-  const layout = opts?.layout ?? defaultOptions.layout
-  return layout === "modern" ? TableOfContents : LegacyTableOfContents
+  return TableOfContentsCollapsed
 }) satisfies QuartzComponentConstructor
