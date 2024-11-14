@@ -9,6 +9,7 @@ import PageTitle from "./PageTitle"
 import ContentMeta from "./ContentMeta"
 import Spacer from "./Spacer"
 import TableOfContents from "./TableOfContents"
+import TableOfContentsCollapsed from "./TableOfContentsCollapsed"
 import Explorer from "./Explorer"
 import TagList from "./TagList"
 import Graph from "./Graph"
@@ -32,6 +33,7 @@ export {
   ContentMeta,
   Spacer,
   TableOfContents,
+  TableOfContentsCollapsed,
   Explorer,
   TagList,
   Graph,

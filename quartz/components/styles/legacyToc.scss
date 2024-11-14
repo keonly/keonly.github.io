@@ -1,4 +1,4 @@
-details#toc {
+details[id^="toc-"] {
   & summary {
     cursor: pointer;
 
