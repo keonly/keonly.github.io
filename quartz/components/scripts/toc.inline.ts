@@ -26,17 +26,14 @@ function toggleToc(this: HTMLElement) {
 }
 
 function setupToc() {
-  const tocs = document.querySelectorAll('button[id^="toc-"]')
-
-  tocs.forEach((toc) => {
+  const toc = document.getElementById("toc")
+  if (toc) {
     const collapsed = toc.classList.contains("collapsed")
-    const contentId = toc.getAttribute("aria-controls")
-    const content = contentId ? document.getElementById(contentId) : undefined
+    const content = toc.nextElementSibling as HTMLElement | undefined
     if (!content) return
-
     toc.addEventListener("click", toggleToc)
     window.addCleanup(() => toc.removeEventListener("click", toggleToc))
-  })
+  }
 }
 
 window.addEventListener("resize", setupToc)
