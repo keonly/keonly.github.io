@@ -42,12 +42,18 @@ hr {
   }
 }
 
-/*******************************
- * Add ExceptDesktop component *
- *******************************/
+/************************************************
+ * Add ExceptDesktop and ExceptMobile component *
+ ************************************************/
 .except-desktop {
   display: initial !important;
   @media all and ($desktop) {
+    display: none !important;
+  }
+}
+.except-mobile {
+  display: initial !important;
+  @media all and ($mobile) {
     display: none !important;
   }
 }
