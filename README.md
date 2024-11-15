@@ -1,18 +1,7 @@
-# Quartz v4
+## About
 
-> “[One] who works with the door open gets all kinds of interruptions, but [they] also occasionally gets clues as to what the world is and what might be important.” — Richard Hamming
+This is my personal website built using [Quartz v4](https://github.com/jackyzha0/quartz) (huge thanks to the creators!) with some modifications. The submodule containing my notes is private because it includes content I do not plan to share publicly. Other than that, pretty much everything in this repository is open and you can take and use anything from here for your own Quartz setup (if you'd like, of course). But please do note that I'm no expert in web development, so some of the changes I made might be quite messy.
 
-Quartz is a set of tools that helps you publish your [digital garden](https://jzhao.xyz/posts/networked-thought) and notes as a website for free.
-Quartz v4 features a from-the-ground rewrite focusing on end-user extensibility and ease-of-use.
+## Licensing Information
 
-🔗 Read the documentation and get started: https://quartz.jzhao.xyz/
-
-[Join the Discord Community](https://discord.gg/cRFFHYye7t)
-
-## Sponsors
-
-<p align="center">
-  <a href="https://github.com/sponsors/jackyzha0">
-    <img src="https://cdn.jsdelivr.net/gh/jackyzha0/jackyzha0/sponsorkit/sponsors.svg" />
-  </a>
-</p>
+This repository is licensed under the MIT License, except for the font files located in the `quartz/static/font/` directory. Each font in this directory is subject to its own respective license. Please refer to the individual license files provided alongside each font for details.
