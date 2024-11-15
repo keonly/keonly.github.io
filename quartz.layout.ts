@@ -25,8 +25,8 @@ export const defaultContentPageLayout: PageLayout = {
   left: [Component.Spacer(), Component.Darkmode(), Component.Search()],
   right: [
     Component.DesktopOnly(Component.TableOfContents()),
-    Component.ExceptDesktop(Component.Graph()),
-    Component.ExceptDesktop(Component.Backlinks()),
+    Component.MobileOnly(Component.Graph()),
+    Component.MobileOnly(Component.Backlinks()),
   ],
   afterBody: [
     Component.RecentNotes({
@@ -52,8 +52,8 @@ export const defaultContentPageLayout: PageLayout = {
         reactionsEnabled: false,
       },
     }),
-    Component.DesktopOnly(Component.Graph()),
-    Component.DesktopOnly(Component.Backlinks()),
+    Component.ExceptMobile(Component.Graph()),
+    Component.ExceptMobile(Component.Backlinks()),
   ],
 }
 
