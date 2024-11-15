@@ -21,12 +21,12 @@ const config: QuartzConfig = {
     defaultDateType: "created",
     generateSocialImages: false,
     theme: {
-      fontOrigin: "googleFonts",
-      cdnCaching: true,
+      fontOrigin: "local",
+      cdnCaching: false,
       typography: {
-        header: "Schibsted Grotesk",
-        body: "Source Sans Pro",
-        code: "JetBrains Mono",
+        header: "SarasaMonoK",
+        body: "SarasaMonoK",
+        code: "SarasaMonoK",
       },
       colors: {
         lightMode: {
