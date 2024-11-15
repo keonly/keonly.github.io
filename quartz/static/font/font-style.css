@@ -1,0 +1,99 @@
+/* SarasaMonoK Regular */
+@font-face {
+  font-family: "SarasaMonoK";
+  src:
+    url("SarasaMonoK/SarasaMonoK-Regular.woff2") format("woff2"),
+    url("SarasaMonoK/SarasaMonoK-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* SarasaMonoK Italic */
+@font-face {
+  font-family: "SarasaMonoK";
+  src:
+    url("SarasaMonoK/SarasaMonoK-Italic.woff2") format("woff2"),
+    url("SarasaMonoK/SarasaMonoK-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* SarasaMonoK Light */
+@font-face {
+  font-family: "SarasaMonoK";
+  src:
+    url("SarasaMonoK/SarasaMonoK-Light.woff2") format("woff2"),
+    url("SarasaMonoK/SarasaMonoK-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* SarasaMonoK Light Italic */
+@font-face {
+  font-family: "SarasaMonoK";
+  src:
+    url("SarasaMonoK/SarasaMonoK-LightItalic.woff2") format("woff2"),
+    url("SarasaMonoK/SarasaMonoK-LightItalic.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+}
+
+/* SarasaMonoK ExtraLight */
+@font-face {
+  font-family: "SarasaMonoK";
+  src:
+    url("SarasaMonoK/SarasaMonoK-ExtraLight.woff2") format("woff2"),
+    url("SarasaMonoK/SarasaMonoK-ExtraLight.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+}
+
+/* SarasaMonoK ExtraLight Italic */
+@font-face {
+  font-family: "SarasaMonoK";
+  src:
+    url("SarasaMonoK/SarasaMonoK-ExtraLightItalic.woff2") format("woff2"),
+    url("SarasaMonoK/SarasaMonoK-ExtraLightItalic.woff") format("woff");
+  font-weight: 200;
+  font-style: italic;
+}
+
+/* SarasaMonoK SemiBold */
+@font-face {
+  font-family: "SarasaMonoK";
+  src:
+    url("SarasaMonoK/SarasaMonoK-SemiBold.woff2") format("woff2"),
+    url("SarasaMonoK/SarasaMonoK-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* SarasaMonoK SemiBold Italic */
+@font-face {
+  font-family: "SarasaMonoK";
+  src:
+    url("SarasaMonoK/SarasaMonoK-SemiBoldItalic.woff2") format("woff2"),
+    url("SarasaMonoK/SarasaMonoK-SemiBoldItalic.woff") format("woff");
+  font-weight: 600;
+  font-style: italic;
+}
+
+/* SarasaMonoK Bold */
+@font-face {
+  font-family: "SarasaMonoK";
+  src:
+    url("SarasaMonoK/SarasaMonoK-Bold.woff2") format("woff2"),
+    url("SarasaMonoK/SarasaMonoK-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* SarasaMonoK Bold Italic */
+@font-face {
+  font-family: "SarasaMonoK";
+  src:
+    url("SarasaMonoK/SarasaMonoK-BoldItalic.woff2") format("woff2"),
+    url("SarasaMonoK/SarasaMonoK-BoldItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+}
