@@ -11,15 +11,23 @@ import { FilePath, FullSlug, joinSegments, slugifyFilePath } from "./path"
  * @param bodyFontName name of google font used for body
  * @returns FontOptions for header and body
  */
-export async function getSatoriFont(headerFontName: string, bodyFontName: string) {
+export async function getSatoriFont(headerFontName: string, bodyFontName: string, baseUrl: string) {
   const headerWeight = 700 as FontWeight
   const bodyWeight = 400 as FontWeight
 
   // Fetch fonts
-  const headerFont = joinSegments("static", "font/SarasaMonoK/SarasaMonoK-Regular.woff2")
-  const bodyFont = joinSegments("static", "font/SarasaMonoK/SarasaMonoK-Regular.woff2")
   // const headerFont = await fetchTtf(headerFontName, headerWeight)
   // const bodyFont = await fetchTtf(bodyFontName, bodyWeight)
+  const headerFontPath = joinSegments("static", "font/SarasaMonoK/SarasaMonoK-Bold.woff2")
+  const bodyFontPath = joinSegments("static", "font/SarasaMonoK/SarasaMonoK-Regular.woff2")
+
+  const url = new URL(`https://${baseUrl ?? "example.com"}`)
+
+  const [headerFont, bodyFont] = await Promise.all(
+    [headerFontPath, bodyFontPath].map((path) =>
+      fetch(`${url.toString()}/${path}`).then((res) => res.arrayBuffer()),
+    ),
+  )
 
   // Convert fonts to satori font format and return
   const fonts: SatoriOptions["fonts"] = [
