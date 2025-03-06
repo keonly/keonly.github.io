@@ -3,6 +3,14 @@
 // put your custom CSS here!
 @use "./variables.scss" as *;
 
+@font-face {
+  font-family: "Sarasa Mono K";
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url("/static/font/SarasaMonoK/SarasaMonoK-Regular.woff2") format("woff2");
+}
+
 /***************************
  * Better looking dividers *
  ***************************/

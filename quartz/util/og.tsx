@@ -15,8 +15,10 @@ export async function getSatoriFont(headerFontName: string, bodyFontName: string
   const bodyWeight = 400 as FontWeight
 
   // Fetch fonts
-  const headerFont = await fetchTtf(headerFontName, headerWeight)
-  const bodyFont = await fetchTtf(bodyFontName, bodyWeight)
+  const headerFont = joinSegments("static", "font/SarasaMonoK/SarasaMonoK-Regular.woff2")
+  const bodyFont = joinSegments("static", "font/SarasaMonoK/SarasaMonoK-Regular.woff2")
+  // const headerFont = await fetchTtf(headerFontName, headerWeight)
+  // const bodyFont = await fetchTtf(bodyFontName, bodyWeight)
 
   // Convert fonts to satori font format and return
   const fonts: SatoriOptions["fonts"] = [
