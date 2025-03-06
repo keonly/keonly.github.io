@@ -182,6 +182,19 @@ export const ContentIndex: QuartzEmitterPlugin<Partial<Options>> = (opts) => {
 
       return emitted
     },
-    getQuartzComponents: () => [],
+    externalResources: (ctx) => {
+      if (opts?.enableRSS) {
+        return {
+          additionalHead: [
+            <link
+              rel="alternate"
+              type="application/rss+xml"
+              title="RSS Feed"
+              href={`https://${ctx.cfg.configuration.baseUrl}/index.xml`}
+            />,
+          ],
+        }
+      }
+    },
   }
 }
