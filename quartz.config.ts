@@ -19,7 +19,12 @@ const config: QuartzConfig = {
     baseUrl: "keonly.github.io",
     ignorePatterns: ["private", "templates", "fleeting", ".obsidian"],
     defaultDateType: "created",
-    generateSocialImages: true,
+    generateSocialImages: {
+      colorScheme: "darkMode",
+      width: 1200,
+      height: 630,
+      excludeRoot: false,
+    },
     theme: {
       fontOrigin: "local",
       cdnCaching: false,
