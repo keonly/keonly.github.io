@@ -3,6 +3,7 @@ import { GlobalConfiguration } from "../cfg"
 import { QuartzPluginData } from "../plugins/vfile"
 import { JSXInternal } from "preact/src/jsx"
 import { ThemeKey } from "./theme"
+import { FilePath, FullSlug, joinSegments, slugifyFilePath } from "./path"
 
 /**
  * Get an array of `FontOptions` (for satori) given google font names
