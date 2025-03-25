@@ -59,18 +59,8 @@ export async function getSatoriFonts(headerFont: FontSpecification, bodyFont: Fo
   ])
 
   const fonts: SatoriOptions["fonts"] = [
-    ...headerFontData.map((data, idx) => ({
-      name: headerFontName,
-      data,
-      weight: headerWeights[idx],
-      style: "normal" as const,
-    })),
-    ...bodyFontData.map((data, idx) => ({
-      name: bodyFontName,
-      data,
-      weight: bodyWeights[idx],
-      style: "normal" as const,
-    })),
+    ...headerFonts.filter((font): font is NonNullable<typeof font> => font !== null),
+    ...bodyFonts.filter((font): font is NonNullable<typeof font> => font !== null),
     {
       name: "SarasaMonoKRegular",
       data: await fs.promises.readFile(path.resolve(sarasaMonoRegularFontPath)),
