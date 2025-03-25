@@ -65,7 +65,7 @@ const config: QuartzConfig = {
       Plugin.TableOfContents(),
       Plugin.TableOfContentsCollapsed(),
       Plugin.CreatedModifiedDate({
-        priority: ["frontmatter"], // you can add 'git' here for last modified from Git but this makes the build slower
+        priority: ["frontmatter", "git", "filesystem"],
       }),
       Plugin.SyntaxHighlighting({
         theme: {
@@ -95,6 +95,8 @@ const config: QuartzConfig = {
       Plugin.Assets(),
       Plugin.Static(),
       Plugin.NotFoundPage(),
+      // Comment out CustomOgImages to speed up build time
+      Plugin.CustomOgImages(),
     ],
   },
 }
