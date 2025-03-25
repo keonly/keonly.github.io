@@ -13,8 +13,7 @@ import chalk from "chalk"
 
 const defaultHeaderWeight = [700]
 const defaultBodyWeight = [400]
-const sarasaMonoBoldFontPath = joinSegments(QUARTZ, "static", "font/SarasaMonoK/SarasaMonoK-Bold.woff2")
-const sarasaMonoRegularFontPath = joinSegments(QUARTZ, "static", "font/SarasaMonoK/SarasaMonoK-Regular.woff2")
+const sarasaMonoFontPath = joinSegments(QUARTZ, "static", "font/SarasaMonoK/SarasaMonoK-Regular.woff2")
 
 export async function getSatoriFonts(headerFont: FontSpecification, bodyFont: FontSpecification) {
   // Get all weights for header and body fonts
@@ -62,16 +61,10 @@ export async function getSatoriFonts(headerFont: FontSpecification, bodyFont: Fo
     ...headerFonts.filter((font): font is NonNullable<typeof font> => font !== null),
     ...bodyFonts.filter((font): font is NonNullable<typeof font> => font !== null),
     {
-      name: "SarasaMonoKRegular",
-      data: await fs.promises.readFile(path.resolve(sarasaMonoRegularFontPath)),
+      name: "SarasaMonoK",
+      data: await fs.promises.readFile(path.resolve(sarasaMonoFontPath)),
       weight: 400,
       style: "normal" as const,
-    },
-    {
-      name: "SarasaMonoKBold",
-      data: await fs.promises.readFile(path.resolve(sarasaMonoBoldFontPath)),
-      weight: 700,
-      style: "bold" as const,
     },
   ]
 
