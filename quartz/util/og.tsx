@@ -5,7 +5,7 @@ import { QuartzPluginData } from "../plugins/vfile"
 import { JSXInternal } from "preact/src/jsx"
 import { FontSpecification, getFontSpecificationName, ThemeKey } from "./theme"
 import path from "path"
-import { QUARTZ } from "./path"
+import { joinSegments, QUARTZ } from "./path"
 import { formatDate, getDate } from "../components/Date"
 import readingTime from "reading-time"
 import { i18n } from "../i18n"
@@ -13,6 +13,8 @@ import chalk from "chalk"
 
 const defaultHeaderWeight = [700]
 const defaultBodyWeight = [400]
+const sarasaMonoBoldFontPath = joinSegments(QUARTZ, "static", "font/SarasaMonoK/SarasaMonoK-Bold.woff2")
+const sarasaMonoRegularFontPath = joinSegments(QUARTZ, "static", "font/SarasaMonoK/SarasaMonoK-Regular.woff2")
 
 export async function getSatoriFonts(headerFont: FontSpecification, bodyFont: FontSpecification) {
   // Get all weights for header and body fonts
@@ -56,10 +58,31 @@ export async function getSatoriFonts(headerFont: FontSpecification, bodyFont: Fo
     Promise.all(bodyFontPromises),
   ])
 
-  // Filter out any failed fetches and combine header and body fonts
   const fonts: SatoriOptions["fonts"] = [
-    ...headerFonts.filter((font): font is NonNullable<typeof font> => font !== null),
-    ...bodyFonts.filter((font): font is NonNullable<typeof font> => font !== null),
+    ...headerFontData.map((data, idx) => ({
+      name: headerFontName,
+      data,
+      weight: headerWeights[idx],
+      style: "normal" as const,
+    })),
+    ...bodyFontData.map((data, idx) => ({
+      name: bodyFontName,
+      data,
+      weight: bodyWeights[idx],
+      style: "normal" as const,
+    })),
+    {
+      name: "SarasaMonoKRegular",
+      data: await fs.promises.readFile(path.resolve(sarasaMonoRegularFontPath)),
+      weight: 400,
+      style: "normal" as const,
+    },
+    {
+      name: "SarasaMonoKBold",
+      data: await fs.promises.readFile(path.resolve(sarasaMonoBoldFontPath)),
+      weight: 700,
+      style: "bold" as const,
+    },
   ]
 
   return fonts
