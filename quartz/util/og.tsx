@@ -62,7 +62,7 @@ export async function getSatoriFonts(headerFont: FontSpecification, bodyFont: Fo
     ...bodyFonts.filter((font): font is NonNullable<typeof font> => font !== null),
     {
       name: "SarasaMonoK",
-      data: await fs.promises.readFile(path.resolve(sarasaMonoFontPath)),
+      data: await fs.promises.readFile(sarasaMonoFontPath),
       weight: 400,
       style: "normal" as const,
     },
