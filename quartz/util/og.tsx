@@ -4,6 +4,7 @@ import { GlobalConfiguration } from "../cfg"
 import { QuartzPluginData } from "../plugins/vfile"
 import { JSXInternal } from "preact/src/jsx"
 import { FontSpecification, getFontSpecificationName, ThemeKey } from "./theme"
+import fs from "fs"
 import path from "path"
 import { joinSegments, QUARTZ } from "./path"
 import { formatDate, getDate } from "../components/Date"
@@ -57,12 +58,17 @@ export async function getSatoriFonts(headerFont: FontSpecification, bodyFont: Fo
     Promise.all(bodyFontPromises),
   ])
 
+  // Filter out any failed fetches and combine header and body fonts
+  // const fonts: SatoriOptions["fonts"] = [
+  //   ...headerFonts.filter((font): font is NonNullable<typeof font> => font !== null),
+  //   ...bodyFonts.filter((font): font is NonNullable<typeof font> => font !== null),
+  // ]
   const fonts: SatoriOptions["fonts"] = [
     ...headerFonts.filter((font): font is NonNullable<typeof font> => font !== null),
     ...bodyFonts.filter((font): font is NonNullable<typeof font> => font !== null),
     {
       name: "SarasaMonoK",
-      data: await fs.promises.readFile(sarasaMonoFontPath),
+      data: await fs.promises.readFile(path.resolve(sarasaMonoFontPath)),
       weight: 400,
       style: "normal" as const,
     },
