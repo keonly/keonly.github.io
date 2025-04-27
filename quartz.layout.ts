@@ -24,21 +24,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.TagList(),
     Component.ExceptDesktop(Component.TableOfContentsCollapsed()),
   ],
-  left: [
-    Component.PageTitle(),
-    Component.MobileOnly(Component.Spacer()),
-    Component.Flex({
-      components: [
-        {
-          Component: Component.Search(),
-          grow: true,
-        },
-        { Component: Component.Darkmode() },
-        { Component: Component.ReaderMode() },
-      ],
-    }),
-    Component.Explorer(),
-  ],
+  left: [Component.Spacer(), Component.Darkmode(), Component.Search()],
   right: [
     Component.DesktopOnly(Component.TableOfContents()),
     Component.MobileOnly(Component.Graph()),
